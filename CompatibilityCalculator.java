@@ -1,4 +1,3 @@
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -12,22 +11,30 @@ public class CompatibilityCalculator {
         List<Person> people = new ArrayList<>();
     
         for (String line : lines) {
-            String[] parts = line.split(", ");
-            // Ensure there are enough parts to construct a Person object
-            if (parts.length >= 17) { // changed to 17 to accommodate 11 Interests and 6 Person parameters
-                Interests interests = new Interests(parts[6], parts[7], parts[8], parts[9], parts[10], 
-                                                    parts[11], parts[12], parts[13], parts[14], parts[15], parts[16]);
-                people.add(new Person(parts[0], Integer.parseInt(parts[1]), Integer.parseInt(parts[2].replace(" cm", "")), 
-                            parts[3], parts[4], interests)); // parts[5] is removed as it's not needed
+            String[] parts = line.split(",");
+            if (parts.length >= 16) { // Ensure there are enough parts to construct a Person object
+                // Assuming the last field (parts[15]) is the 11th interest
+                Interests interests = new Interests(parts[6].trim(), parts[7].trim(), parts[8].trim(), 
+                                                    parts[9].trim(), parts[10].trim(), parts[11].trim(), 
+                                                    parts[12].trim(), parts[13].trim(), parts[14].trim(), 
+                                                    parts[15].trim(), parts[15].trim()); // Repeated the last part for the 11th parameter
+    
+                people.add(new Person(parts[0].trim(), Integer.parseInt(parts[1].trim()), 
+                                      Integer.parseInt(parts[2].trim()), parts[3].trim(), 
+                                      parts[4].trim(), interests));
             }
         }
     
         return people;
     }
-    
 
     public void calculateCompatibility(String currentUserFile, String otherUsersFile) throws IOException {
-        Person currentUser = readPeopleFromFile(currentUserFile).get(0); // assumes single line for current user
+        List<Person> currentUserList = readPeopleFromFile(currentUserFile); 
+        if (currentUserList.isEmpty()) {
+            System.out.println("No current user found in file: " + currentUserFile);
+            return;
+        }
+        Person currentUser = currentUserList.get(0); // Assumes single line for current user
         List<Person> otherPeople = readPeopleFromFile(otherUsersFile);
 
         for (Person other : otherPeople) {

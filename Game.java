@@ -79,6 +79,7 @@ public class Game {
         Person person = new Person(name, age, height, gender, sign, myInterests);
 
         StringBuilder userData = new StringBuilder();
+        userData.append(name).append(",");
         userData.append(age).append(",");
         userData.append(height).append(",");
         userData.append(gender).append(",");
@@ -95,7 +96,7 @@ public class Game {
         userData.append(personalityTraits).append(",");
         userData.append(hometown);
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("UserProfiles.csv", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt", true))) {
             writer.write(userData.toString());
             writer.newLine(); // move to a new line for the next user
         } catch (IOException e) {
@@ -129,7 +130,7 @@ public class Game {
         System.out.println("+----------------+-----------------------+");
         System.out.printf("| %-14s | %-21s |\n", "Attribute", "Value");
         System.out.println("+----------------+-----------------------+");
-        System.out.printf("| %-14s | %-21d |\n", "Name", person.getName());
+        System.out.printf("| %-14s | %-21s |\n", "Name", person.getName());
         System.out.printf("| %-14s | %-21d |\n", "Age", person.getAge());
         System.out.printf("| %-14s | %-21d |\n", "Height", person.getHeight());
         System.out.printf("| %-14s | %-21s |\n", "Gender", person.getGender());
