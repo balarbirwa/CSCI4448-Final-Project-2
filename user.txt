@@ -1,2 +1,0 @@
-birwa,20,180,female,leo,student,cooking,yoga,salad,blogging,pop,hungergames,avatar,rome,thoughtful,dallas
-birwa,20,172,female,leo,student,drawing,basketball,salad,blogging,pop,1989,avatar,fiji,thoughtfu;,dallas
