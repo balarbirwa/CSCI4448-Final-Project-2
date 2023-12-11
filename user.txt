@@ -1,3 +1,4 @@
 
 birwa,20,180,female,aries,developer,art,soccor,pasta,gaming,rock,1984,inception,tokyo,creative,portland
 birwa,20,172,female,leo,student,coding,soccor,pasta,gaming,rock,1984,inception,tokyo,creative,portland
+birwa,20,172,female,leo,student,drawing,soccor,burger,hikiing,edm,1984,avatar,rome,dynamic,boston
