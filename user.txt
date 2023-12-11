@@ -1,0 +1,2 @@
+Name, Age, Height in cm, Gender, Star Sign, Job, Creativity Interest, Sports Interest, Food Interest, Hobby, Music Interest, Favorite Book, Favorite Movie, Travel Destination, Personality Trait, Hometown 
+Birwa, 20, 172, female, leo, student, drawing, volleyball, ramen, skiing, rap, "The Night Circus" by Erin Morgenstern, "Inception", Fiji, Creative, Dallas Texas
