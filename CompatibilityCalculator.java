@@ -28,18 +28,32 @@ public class CompatibilityCalculator {
         return people;
     }
 
-    public void calculateCompatibility(String currentUserFile, String otherUsersFile) throws IOException {
+    public Person getMostCompatiblePerson(String currentUserFile, String otherUsersFile) throws IOException {
         List<Person> currentUserList = readPeopleFromFile(currentUserFile); 
         if (currentUserList.isEmpty()) {
             System.out.println("No current user found in file: " + currentUserFile);
-            return;
+            return null;
         }
-        Person currentUser = currentUserList.get(0); // Assumes single line for current user
+        Person currentUser = currentUserList.get(0);
         List<Person> otherPeople = readPeopleFromFile(otherUsersFile);
-
+    
+        Person mostCompatiblePerson = null;
+        double highestScore = 0;
+    
+        System.out.println("People with compatibility greater than 0:");
         for (Person other : otherPeople) {
             double score = currentUser.getInterests().calculateCompatibilityScore(other.getInterests());
-            System.out.printf("Compatibility with %s: %.2f%%\n", other.getName(), score);
+            if (score > 0) {
+                System.out.printf("Compatibility with %s: %.2f%%\n", other.getName(), score);
+            }
+            if (score > highestScore) {
+                highestScore = score;
+                mostCompatiblePerson = other;
+            }
         }
+    
+        return mostCompatiblePerson;
     }
+    
+    
 }

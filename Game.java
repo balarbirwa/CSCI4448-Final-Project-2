@@ -146,7 +146,18 @@ public class Game {
 
         try {
             CompatibilityCalculator calculator = new CompatibilityCalculator();
-            calculator.calculateCompatibility("user.txt", "users.txt");
+            Person mostCompatiblePerson = calculator.getMostCompatiblePerson("user.txt", "users.txt");
+        
+            if (mostCompatiblePerson != null) {
+                System.out.println("\nWould you like to view the profile of your most compatible person? (yes/no)");
+                String response = scanner.nextLine().trim().toLowerCase();
+                if (response.equals("yes")) {
+                    System.out.println("Most Compatible Person's Profile:");
+                    System.out.println(mostCompatiblePerson); // Assumes Person class has a meaningful toString() method
+                }
+            } else {
+                System.out.println("No compatible person found.");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
