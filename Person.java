@@ -1,26 +1,63 @@
-//import person.Interests;
-//import ./Interests;
 
 public class Person extends Profile {
     private Interests interests;
 
-    // Default constructor
-    public Person() {
-        super(); // Calls the default constructor of Profile
-        this.interests = new Interests("", "", "", "", "", "", "", "", "", "", "");
+    // Private constructor to prevent direct instantiation
+    private Person(Builder builder) {
+        super(builder.name, builder.age, builder.height, builder.gender, builder.sign);
+        this.interests = builder.interests;
     }
 
-    // Parameterized constructor
-    public Person(String name, int age, int height, String gender, String sign, Interests interests) {
-        super(name, age, height, gender, sign); // Pass name to Profile
-        this.interests = interests;
+    // Static inner Builder class
+    public static class Builder {
+        private String name;
+        private int age;
+        private int height;
+        private String gender;
+        private String sign;
+        private Interests interests;
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public Builder withHeight(int height) {
+            this.height = height;
+            return this;
+        }
+
+        public Builder withGender(String gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        public Builder withSign(String sign) {
+            this.sign = sign;
+            return this;
+        }
+
+        public Builder withInterests(Interests interests) {
+            this.interests = interests;
+            return this;
+        }
+
+        public Person build() {
+            return new Person(this);
+        }
     }
 
-    // Getter and setter for interests
+    // Getter for interests
     public Interests getInterests() {
         return interests;
     }
 
+    // Setter for interests
     public void setInterests(Interests interests) {
         this.interests = interests;
     }
@@ -29,10 +66,12 @@ public class Person extends Profile {
     public String getName() {
         return super.getName(); // Assuming the getName method is defined in the Profile class
     }
+
     public String toString() {
         return "Person {" +
-               "\n  Profile: " + super.toString() + // Calls toString of Profile class
-               ",\n  Interests: " + interests.toString() + // Calls toString of Interests class
-               "\n}";
+                "\n  Name: " + getName() +
+                "\n  Profile: " + super.toString() + // Calls toString of Profile class
+                ",\n  Interests: " + interests.toString() + // Calls toString of Interests class
+                "\n}";
     }
 }

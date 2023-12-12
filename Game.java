@@ -76,7 +76,18 @@ public class Game {
                                               favoriteBooks, favoriteMovies, travelDestinations, 
                                               personalityTraits, hometown, job);
 
-        Person person = new Person(name, age, height, gender, sign, myInterests);
+        //Person person = new Person(name, age, height, gender, sign, myInterests);
+
+        // New Builder patter for a Person
+        //
+        Person person = new Person.Builder()
+            .withName(name)
+            .withAge(age)
+            .withHeight(height)
+            .withGender(gender)
+            .withSign(sign)
+            .withInterests(myInterests)
+            .build();
 
         StringBuilder userData = new StringBuilder();
         userData.append(name).append(",");
