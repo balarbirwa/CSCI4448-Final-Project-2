@@ -1,2 +1,2 @@
 matt,50,50,m,virgo,engineer,sports,golf,sushi,soccer,disco,hobbit,glider,italy,cool,walnut
-jake,20,178,mal,libra,nerd,mewing,tennis,c4c,fortnite,classical,1984,elf,syria,,denver
+jake,20,178,mal,libra,nerd,mewing,tennis,c4c,fortnite,classical,1984,elf,syria,cool,denver
