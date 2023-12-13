@@ -53,16 +53,16 @@ public class Game {
         System.out.println(ANSI_CYAN + "Enter your music interest: " + ANSI_RESET);
         String music = scanner.nextLine();
 
-        System.out.println(ANSI_CYAN + "Enter your favorite books: " + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Enter your favorite book: " + ANSI_RESET);
         String favoriteBooks = scanner.nextLine();
 
-        System.out.println(ANSI_CYAN + "Enter your favorite movies: " + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Enter your favorite movie: " + ANSI_RESET);
         String favoriteMovies = scanner.nextLine();
 
-        System.out.println(ANSI_CYAN + "Enter your travel destinations: " + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Enter your travel destination: " + ANSI_RESET);
         String travelDestinations = scanner.nextLine();
 
-        System.out.println(ANSI_CYAN + "Enter your personality traits: " + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Enter your personality trait: " + ANSI_RESET);
         String personalityTraits = scanner.nextLine();
 
         System.out.println(ANSI_CYAN + "Enter your hometown: " + ANSI_RESET);
@@ -115,14 +115,14 @@ public class Game {
         }
 
 
-        List<Trait> allTraits = TraitList.getAllTraits();
+        List<Trait> allTraits = TraitList.getInstance().getAllTraits();
         System.out.println(ANSI_YELLOW + "\nAvailable Traits:" + ANSI_RESET);
         for (Trait trait : allTraits) {
             System.out.println(ANSI_PURPLE + trait.getTraitName() + ANSI_RESET);
         }
 
         // Ask the user to select traits
-        System.out.println(ANSI_BLUE + "\nEnter the traits you identify with (separated by commas): " + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "\nEnter the trait you most identify with: " + ANSI_RESET);
         String inputTraits = scanner.nextLine();
         String[] chosenTraitNames = inputTraits.split(",");
 
@@ -155,6 +155,24 @@ public class Game {
         System.out.println(myInterests);
 
 
+        // try {
+        //     CompatibilityCalculator calculator = new CompatibilityCalculator();
+        //     Person mostCompatiblePerson = calculator.getMostCompatiblePerson("user.txt", "users.txt");
+        
+        //     if (mostCompatiblePerson != null) {
+        //         System.out.println("\nWould you like to view the profile of your most compatible person? (yes/no)");
+        //         String response = scanner.nextLine().trim().toLowerCase();
+        //         if (response.equals("yes")) {
+        //             System.out.println("Most Compatible Person's Profile:");
+        //             System.out.println(mostCompatiblePerson); // Assumes Person class has a meaningful toString() method
+        //         }
+        //     } else {
+        //         System.out.println("No compatible person found.");
+        //     }
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
+
         try {
             CompatibilityCalculator calculator = new CompatibilityCalculator();
             Person mostCompatiblePerson = calculator.getMostCompatiblePerson("user.txt", "users.txt");
@@ -162,9 +180,49 @@ public class Game {
             if (mostCompatiblePerson != null) {
                 System.out.println("\nWould you like to view the profile of your most compatible person? (yes/no)");
                 String response = scanner.nextLine().trim().toLowerCase();
+        
                 if (response.equals("yes")) {
                     System.out.println("Most Compatible Person's Profile:");
                     System.out.println(mostCompatiblePerson); // Assumes Person class has a meaningful toString() method
+        
+                    System.out.println("\nWould you like to match with your most compatible person? (yes/no)");
+                    String matchResponse = scanner.nextLine().trim().toLowerCase();
+        
+                    if (matchResponse.equals("yes")) {
+                        System.out.println("Congratulations! You've found love!");
+                        System.exit(0); // Exits the game
+                    } else {
+                        System.out.println("\nWhat would you like to do next?");
+                        System.out.println("1. View Other Profiles and Retry Matching");
+                        System.out.println("2. Exit Game");
+        
+                        int choice = scanner.nextInt();
+                        scanner.nextLine(); // consume the remaining newline
+                        switch (choice) {
+                            case 1:
+                                // Logic to retry matching
+                                System.out.println("Revisiting the Most Compatible Person's Profile:");
+                                System.out.println(mostCompatiblePerson);
+
+                                System.out.println("\nWould you like to match with your most compatible person? (yes/no)");
+                                matchResponse = scanner.nextLine().trim().toLowerCase();
+                    
+                                if (matchResponse.equals("yes")) {
+                                    System.out.println("Congratulations! You've found love!");
+                                    System.exit(0); // Exits the game
+                                } else {
+                                    System.out.println("There are no matches for you :(");
+                                }
+                                break;
+                            case 2:
+                                System.out.println("Thank you for playing. Goodbye!");
+                                System.exit(0);
+                                break;
+                            default:
+                                System.out.println("Invalid option, exiting game.");
+                                System.exit(0);
+                        }
+                    }
                 }
             } else {
                 System.out.println("No compatible person found.");
@@ -172,6 +230,8 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        
     
 
         scanner.close();
