@@ -19,3 +19,4 @@ max,36,180,male,cancer,scientist,hiking,bowling,fish,camping,reggae,brave,upside
 isabella,21,159,female,gemini,student,reading,soccer,chocolate,movies,soul,perks,her,santabarbara,friendly,athens
 luke,37,181,male,pisces,banker,fishing,rugby,steak,golfing,rock,mobydick,heat,moscow,practical,johannesburg
 lily,28,166,female,sagittarius,nutritionist,jogging,swimming,veggies,yoga,blues,pride,zootopia,madrid,caring,buenosaires
+jake,20,178,male,libra,nerd,mewing,tennis,c4c,fortnite,classical,1984,elf,syria,dope,denver
