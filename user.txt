@@ -1,4 +1,1 @@
-birwa,20,172,female,leo,student,drawing,tennis,pasta,gaming,rock,1984,inception,tokyo,creative,portland
-birwa,20,172,female,leo,student,drawing,tennis,pasta,gaming,rock,1984,inception,tokyo,creative,portland
-birwa,20,172,female,leo,student,drawing,tennis,pasta,gaming,rock,1984,inception,tokyo,creative,portland
-birwa,20,172,female,leo,student,drawing,tennis,pasta,gaming,rock,1984,inception,tokyo,creative,portland
+

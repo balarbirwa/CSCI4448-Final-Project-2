@@ -2,13 +2,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TraitList {
-    // Private static instance variable to hold the single instance of TraitList
     private static TraitList instance;
 
-    // private TraitList() {
-    //     // Initialize the list of traits here
-    // }
-
+   // Implements Singleton Pattern
     public static TraitList getInstance() {
         if (instance == null) {
             instance = new TraitList();

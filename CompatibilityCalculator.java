@@ -12,15 +12,13 @@ public class CompatibilityCalculator {
 
         for (String line : lines) {
             String[] parts = line.split(",");
-            if (parts.length >= 16) { // Ensure there are enough parts to construct a Person object
-                // Assuming the last field (parts[15]) is the 11th interest
+            if (parts.length >= 16) { 
                 Interests interests = new Interests(parts[6].trim(), parts[7].trim(), parts[8].trim(),
                         parts[9].trim(), parts[10].trim(), parts[11].trim(),
                         parts[12].trim(), parts[13].trim(), parts[14].trim(),
-                        parts[15].trim(), parts[15].trim()); // Repeated the last part for the 11th parameter
+                        parts[15].trim(), parts[15].trim()); 
 
                 // New builder pattern
-
                 Person person = new Person.Builder()
                         .withName(parts[0].trim())
                         .withAge(Integer.parseInt(parts[1].trim()))

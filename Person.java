@@ -2,7 +2,6 @@
 public class Person extends Profile {
     private Interests interests;
 
-    // Private constructor to prevent direct instantiation
     private Person(Builder builder) {
         super(builder.name, builder.age, builder.height, builder.gender, builder.sign);
         this.interests = builder.interests;
@@ -64,14 +63,14 @@ public class Person extends Profile {
 
     @Override
     public String getName() {
-        return super.getName(); // Assuming the getName method is defined in the Profile class
+        return super.getName(); 
     }
 
     public String toString() {
         return "Person {" +
                 "\n  Name: " + getName() +
-                "\n  Profile: " + super.toString() + // Calls toString of Profile class
-                ",\n  Interests: " + interests.toString() + // Calls toString of Interests class
+                "\n  Profile: " + super.toString() + 
+                ",\n  Interests: " + interests.toString() + 
                 "\n}";
     }
 }

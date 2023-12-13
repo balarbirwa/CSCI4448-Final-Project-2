@@ -11,7 +11,6 @@ public class Interests {
     private String hometown;
     private String job;
 
-    // Parameterized constructor
     public Interests(String creativity, String sports, String food, String hobby, String music,
                      String favoriteBooks, String favoriteMovies, String travelDestinations,
                      String personalityTraits, String hometown, String job) {
@@ -28,7 +27,6 @@ public class Interests {
         this.job = job;
     }
 
-    // Getters and setters for each field (not shown for brevity)
     public String getCreativity() {
         return creativity;
     }
@@ -148,6 +146,6 @@ public class Interests {
         if (!this.hometown.isEmpty() && this.hometown.equals(other.hometown)) score++;
         if (!this.job.isEmpty() && this.job.equals(other.job)) score++;
 
-        return (score / totalFields) * 100; // return percentage
+        return (score / totalFields) * 100; 
     }
 }

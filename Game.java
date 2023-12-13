@@ -15,11 +15,11 @@ public class Game {
 
         System.out.println("Enter your age: ");
         int age = scanner.nextInt();
-        scanner.nextLine(); // consume the remaining newline
+        scanner.nextLine(); 
 
         System.out.println("Enter your height in cm: ");
         int height = scanner.nextInt();
-        scanner.nextLine(); // consume the remaining newline
+        scanner.nextLine(); 
 
         System.out.println("Enter your gender: ");
         String gender = scanner.nextLine();
@@ -29,6 +29,7 @@ public class Game {
 
         System.out.println("Enter your job: ");
         String job = scanner.nextLine();
+
         // ANSI Color Codes
         final String ANSI_RESET = "\u001B[0m";
         final String ANSI_YELLOW = "\u001B[33m";
@@ -37,7 +38,6 @@ public class Game {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_PURPLE = "\u001B[35m";
 
-        // Collecting user inputs for each interest field
         System.out.println(ANSI_CYAN + "Enter your creativity interest: " + ANSI_RESET);
         String creativity = scanner.nextLine();
 
@@ -68,18 +68,13 @@ public class Game {
         System.out.println(ANSI_CYAN + "Enter your hometown: " + ANSI_RESET);
         String hometown = scanner.nextLine();
 
-        // System.out.println("Enter your job: ");
-        // String job = scanner.nextLine();
-        // System.out.println(ANSI_CYAN + "Enter your job: " + ANSI_RESET);
         // Create an instance of Interests with the user input
         Interests myInterests = new Interests(creativity, sports, food, hobby, music, 
                                               favoriteBooks, favoriteMovies, travelDestinations, 
                                               personalityTraits, hometown, job);
 
-        //Person person = new Person(name, age, height, gender, sign, myInterests);
 
         // New Builder patter for a Person
-        //
         Person person = new Person.Builder()
             .withName(name)
             .withAge(age)
@@ -109,7 +104,7 @@ public class Game {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt", true))) {
             writer.write(userData.toString());
-            writer.newLine(); // move to a new line for the next user
+            writer.newLine(); 
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -146,32 +141,12 @@ public class Game {
         System.out.printf("| %-14s | %-21d |\n", "Height", person.getHeight());
         System.out.printf("| %-14s | %-21s |\n", "Gender", person.getGender());
         System.out.printf("| %-14s | %-21s |\n", "Star Sign", person.getStarSign());
-        //System.out.printf("| %-14s | %-21s |\n", "Job", person.getJob());
-        // Add more lines here for each attribute
         System.out.println("+----------------+-----------------------+");
 
         // Display the entered interests
         System.out.println("\nHere are your interests:");
         System.out.println(myInterests);
 
-
-        // try {
-        //     CompatibilityCalculator calculator = new CompatibilityCalculator();
-        //     Person mostCompatiblePerson = calculator.getMostCompatiblePerson("user.txt", "users.txt");
-        
-        //     if (mostCompatiblePerson != null) {
-        //         System.out.println("\nWould you like to view the profile of your most compatible person? (yes/no)");
-        //         String response = scanner.nextLine().trim().toLowerCase();
-        //         if (response.equals("yes")) {
-        //             System.out.println("Most Compatible Person's Profile:");
-        //             System.out.println(mostCompatiblePerson); // Assumes Person class has a meaningful toString() method
-        //         }
-        //     } else {
-        //         System.out.println("No compatible person found.");
-        //     }
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
 
         try {
             CompatibilityCalculator calculator = new CompatibilityCalculator();
@@ -190,14 +165,14 @@ public class Game {
         
                     if (matchResponse.equals("yes")) {
                         System.out.println("Congratulations! You've found love!");
-                        System.exit(0); // Exits the game
+                        System.exit(0); 
                     } else {
                         System.out.println("\nWhat would you like to do next?");
                         System.out.println("1. View Other Profiles and Retry Matching");
                         System.out.println("2. Exit Game");
         
                         int choice = scanner.nextInt();
-                        scanner.nextLine(); // consume the remaining newline
+                        scanner.nextLine(); 
                         switch (choice) {
                             case 1:
                                 // Logic to retry matching
@@ -209,7 +184,7 @@ public class Game {
                     
                                 if (matchResponse.equals("yes")) {
                                     System.out.println("Congratulations! You've found love!");
-                                    System.exit(0); // Exits the game
+                                    System.exit(0); 
                                 } else {
                                     System.out.println("There are no matches for you :(");
                                 }
@@ -232,8 +207,6 @@ public class Game {
         }
         
         
-    
-
         scanner.close();
     }
 }
